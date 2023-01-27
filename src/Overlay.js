@@ -5,8 +5,6 @@ import './Overlay.css';
 function Overlay({ details, setOverlay}) {
   const { name, speech_text, audio, video_link, date } = details.speech_data;
 
-  console.log(details)
-
   return (
     <div className="Overlay">
       <button
@@ -14,7 +12,7 @@ function Overlay({ details, setOverlay}) {
           setOverlay(null);
         }}
       >Close</button>
-      <h1>{name}</h1>
+      <h1>{`${name} on ${date}`}</h1>
       {audio && <audio controls src={`https://www.americanrhetoric.com/${audio}`}/>}
       {video_link && video_link.indexOf('youtube') >= 0 && <Youtube url={video_link}/>}
       {/* {video_link && video_link.indexOf('youtube') <=0 && <video source={`https://www.americanrhetoric.com/${video_link}`}/>} */}
